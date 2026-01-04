@@ -1,0 +1,239 @@
+/* =========================
+   Global Styles
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+/* =========================
+   Header / Hero / Footer Base
+========================= */
+
+header,
+footer,
+main > section:first-of-type {
+  background-color: #1F2937;
+  color: #F9FAF8;
+}
+
+/* =========================
+   Header / Navbar
+========================= */
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 8rem;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #F9FAF8;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+header a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #E5E7EB;
+}
+
+/* =========================
+   Hero Section
+========================= */
+
+main > section:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 8rem;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main > section:first-of-type h2 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #F9FAF8;
+}
+
+main > section:first-of-type p {
+  font-size: 18px;
+  color: #E5E7EB;
+  margin: 1rem 0;
+}
+
+main > section:first-of-type button {
+  background-color: #3882F6;
+  color: #F9FAF8;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+main > section:first-of-type aside {
+  background-color: #6B7280;
+  color: #E5E7EB;
+  padding: 4rem;
+  text-align: center;
+  min-width: 400px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+/* =========================
+   Random Info Section
+========================= */
+
+main > section:nth-of-type(2) {
+  padding: 4rem 8rem;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main > section:nth-of-type(2) h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1F2937;
+  margin-bottom: 3rem;
+}
+
+main > section:nth-of-type(2) section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+main > section:nth-of-type(2) section > figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+figure {
+  max-width: 150px;
+}
+
+figure::before {
+  content: "";
+  display: block;
+  height: 150px;
+  border: 3px solid #3882F6;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #1F2937;
+}
+
+/* =========================
+   Quote Section
+========================= */
+
+main > section:nth-of-type(3) {
+  background-color: #E5E7EB;
+  padding: 6rem 12rem;
+  display: flex;
+  justify-content: center;
+}
+
+main > section:nth-of-type(3) blockquote {
+  max-width: 900px;
+  width: 100%;
+}
+
+blockquote p {
+  font-size: 36px;
+  font-weight: 300;
+  font-style: italic;
+  color: #1F2937;
+}
+
+blockquote footer {
+  margin-top: 1rem;
+  text-align: right;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+/* =========================
+   Call To Action Section
+========================= */
+
+main > section:nth-of-type(4) {
+  padding: 4rem 8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main > section:nth-of-type(4) article {
+  background-color: #3882F6;
+  color: #F9FAF8;
+  padding: 3rem 5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main > section:nth-of-type(4) h3 {
+  font-size: 24px;
+}
+
+main > section:nth-of-type(4) p {
+  color: #E5E7EB;
+}
+
+main > section:nth-of-type(4) button {
+  background-color: transparent;
+  border: 2px solid #F9FAF8;
+  color: #F9FAF8;
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 14px;
+}
