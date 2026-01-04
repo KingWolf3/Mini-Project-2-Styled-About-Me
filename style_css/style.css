@@ -24,6 +24,10 @@ main > section:first-of-type {
   color: #F9FAF8;
 }
 
+header {
+  padding: 1.5rem 8rem;
+}
+
 /* =========================
    Header / Navbar
 ========================= */
@@ -32,10 +36,8 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 1.5rem 8rem;
 }
 
 header h1 {
@@ -60,14 +62,21 @@ header a {
 ========================= */
 
 main > section:first-of-type {
+  background-color: #1F2937;
+  color: #F9FAF8;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 6rem 8rem;
   gap: 4rem;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+
+  padding: 6rem 8rem;
+}
+
+main > section:first-of-type > article,
+main > section:first-of-type > aside {
+  flex: 1;
+  max-width: 525px;
 }
 
 main > section:first-of-type h2 {
@@ -106,6 +115,13 @@ main > section:first-of-type aside {
   flex: 1;
 }
 
+main > section:first-of-type aside img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 /* =========================
    Random Info Section
 ========================= */
@@ -113,8 +129,6 @@ main > section:first-of-type aside {
 main > section:nth-of-type(2) {
   padding: 4rem 8rem;
   text-align: center;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 main > section:nth-of-type(2) h2 {
@@ -125,11 +139,14 @@ main > section:nth-of-type(2) h2 {
 }
 
 main > section:nth-of-type(2) section {
+  max-width: 1100px;
+  margin: 0 auto;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 main > section:nth-of-type(2) section > figure {
@@ -137,15 +154,18 @@ main > section:nth-of-type(2) section > figure {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex: 0 0 150px;
 }
 
 figure {
   max-width: 150px;
+  min-width: 150px;
 }
 
 figure::before {
   content: "";
   display: block;
+  width: 150px;     /* ✅ THIS restores the box */
   height: 150px;
   border: 3px solid #3882F6;
   border-radius: 12px;
@@ -193,8 +213,6 @@ blockquote footer {
 
 main > section:nth-of-type(4) {
   padding: 4rem 8rem;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 main > section:nth-of-type(4) article {
