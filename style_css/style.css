@@ -459,9 +459,108 @@ footer button {
   width: 100%;
 }
 
+
 .sharingbox-page .role-bullets {
   max-width: 900px;         /* readable line length */
   margin: 0 auto;           /* centers the list container */
   text-align: left;         /* bullets should read left-aligned */
   padding-left: 1.5rem;
+}
+
+/* =========================
+   QoL Upgrades (Polish)
+   Small enhancements: spacing, hover/focus, card feel
+========================== */
+
+/* Smooth UI interactions */
+a,
+button {
+  transition: transform 150ms ease, opacity 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+/* Better link hover + focus (site-wide) */
+header a:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+header a:focus-visible,
+main a:focus-visible,
+footer a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3882F6;
+  outline-offset: 4px;
+}
+
+/* Buttons feel nicer */
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  opacity: 0.95;
+}
+
+/* Work Experience pages: make the role section feel like a card */
+.ve-page .role-card,
+.univision-page .role-card,
+.nyu-page .role-card,
+.sharingbox-page .role-card {
+  background-color: #ffffff;
+  color: #1F2937;
+  border-radius: 12px;
+  padding: 2.5rem 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.ve-page .role-header,
+.univision-page .role-header,
+.nyu-page .role-header,
+.sharingbox-page .role-header {
+  background-color: #22bdfa;
+  color: #F9FAF8;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.ve-page .role-header p,
+.univision-page .role-header p,
+.nyu-page .role-header p,
+.sharingbox-page .role-header p {
+  color: #E5E7EB;
+}
+
+.ve-page .role-bullets li,
+.univision-page .role-bullets li,
+.nyu-page .role-bullets li,
+.sharingbox-page .role-bullets li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Work experience cards feel clickable on the home page */
+main > section:nth-of-type(2) figure:hover img {
+  transform: scale(1.02);
+}
+
+main > section:nth-of-type(2) figure:hover::before {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+main > section:nth-of-type(2) figure:hover figcaption {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* CTA polish */
+main > section:nth-of-type(4) article {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+main > section:nth-of-type(4) button:hover {
+  border-color: #E5E7EB;
+  opacity: 0.95;
 }
