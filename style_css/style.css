@@ -24,8 +24,7 @@ body {
 ========================= */
 
 header,
-footer,
-main > section:first-of-type {
+footer {
   background-color: #22bdfa;
   color: #F9FAF8;
 }
@@ -73,7 +72,7 @@ header a {
    Uses flexbox for side-by-side layout of intro and profile image.
 ========================= */
 
-main > section:first-of-type {
+main > .profile {
   background-color: #1F2937;
   color: #F9FAF8;
 
@@ -85,25 +84,25 @@ main > section:first-of-type {
   padding: 6rem 8rem;
 }
 
-main > section:first-of-type > article,
-main > section:first-of-type > aside {
+main > .profile > article,
+main > .profile > aside {
   flex: 1; /* Allow both sides to grow/shrink equally */
   max-width: 525px; /* Prevent content from stretching too wide */
 }
 
-main > section:first-of-type h2 {
+main > .profile h2 {
   font-size: 48px;
   font-weight: 900;
   color: #F9FAF8;
 }
 
-main > section:first-of-type p {
+main > .profile p {
   font-size: 18px;
   color: #E5E7EB;
   margin: 1rem 0;
 }
 
-main > section:first-of-type button {
+main > .profile button {
   background-color: #3882F6;
   color: #F9FAF8;
   border: none;
@@ -114,7 +113,7 @@ main > section:first-of-type button {
   cursor: pointer;
 }
 
-main > section:first-of-type aside {
+main > .profile aside {
   background-color: #6B7280;
   color: #E5E7EB;
   padding: .5rem;
@@ -128,7 +127,7 @@ main > section:first-of-type aside {
   flex: 1; /* Allow aside to grow/shrink with flexbox */
 }
 
-main > section:first-of-type aside img {
+main > .profile aside img {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
@@ -143,20 +142,20 @@ main > section:first-of-type aside img {
    Uses flexbox for horizontal alignment.
 ========================= */
 
-main > section:nth-of-type(2) {
+main > .work-experiences {
   /* Targets the second section inside main (Random Info) */
   padding: 4rem 8rem;
   text-align: center;
 }
 
-main > section:nth-of-type(2) h2 {
+main > .work-experiences h2 {
   font-size: 36px;
   font-weight: 900;
   color: #1F2937;
   margin-bottom: 3rem;
 }
 
-main > section:nth-of-type(2) section {
+main > .work-experiences .work-grid {
   /* Targets the inner section that holds all figure elements */
   max-width: 1100px;
   margin: 0 auto;
@@ -168,7 +167,7 @@ main > section:nth-of-type(2) section {
   flex-wrap: nowrap; /* Prevent wrapping to next line */
 }
 
-main > section:nth-of-type(2) section > figure {
+main > .work-experiences .work-grid > figure {
   display: flex; /* Stack image and caption vertically */
   flex-direction: column;
   align-items: center; /* Center image and caption horizontally */
@@ -236,7 +235,7 @@ figcaption {
    with blockquote formatting and attribution.
 ========================= */
 
-main > section:nth-of-type(3) {
+main > .quote {
   /* Targets the third section inside main (Quote section) */
   background-color: #E5E7EB;
   padding: 6rem 12rem;
@@ -244,7 +243,7 @@ main > section:nth-of-type(3) {
   justify-content: center;
 }
 
-main > section:nth-of-type(3) blockquote {
+main > .quote blockquote {
   max-width: 900px;
   width: 100%;
   border: 3px solid #1F2937;
@@ -274,14 +273,14 @@ blockquote footer {
    message and button, visually set apart with background and spacing.
 ========================= */
 
-main > section:nth-of-type(4) {
+main > .cta {
   /* Targets the fourth section inside main (Call to Action) */
   padding: 4rem 8rem;
   display: flex;
   justify-content: center;
 }
 
-main > section:nth-of-type(4) article {
+main > .cta article {
   background-color: #1F2937;
   color: #F9FAF8;
   padding: 3rem 5rem;
@@ -294,20 +293,20 @@ main > section:nth-of-type(4) article {
   align-items: center;
 }
 
-main > section:nth-of-type(4) article > * {
+main > .cta article > * {
   background-color: transparent;
 }
 
-main > section:nth-of-type(4) h3 {
+main > .cta h3 {
   font-size: 24px;
   white-space: nowrap;
 }
 
-main > section:nth-of-type(4) p {
+main > .cta p {
   color: #E5E7EB;
 }
 
-main > section:nth-of-type(4) button {
+main > .cta button {
   background-color: #3882F6;
   border: 2px solid #F9FAF8;
   color: #F9FAF8;
@@ -468,6 +467,47 @@ footer button {
 }
 
 /* =========================
+   Work Experiences Nav (Subpages)
+   Horizontal logo links under role bullets
+========================== */
+
+.work-links {
+  padding: 4rem 8rem;
+  text-align: center;
+}
+
+.work-links h2 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #1F2937;
+  margin-bottom: 3rem;
+}
+
+.work-links-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  flex-wrap: nowrap;
+}
+
+.work-links-grid > figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 0 0 150px;
+}
+
+.work-links-grid a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
    QoL Upgrades (Polish)
    Small enhancements: spacing, hover/focus, card feel
 ========================== */
@@ -542,25 +582,25 @@ button:active {
 }
 
 /* Work experience cards feel clickable on the home page */
-main > section:nth-of-type(2) figure:hover img {
+main > .work-experiences figure:hover img {
   transform: scale(1.02);
 }
 
-main > section:nth-of-type(2) figure:hover::before {
+main > .work-experiences figure:hover::before {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
-main > section:nth-of-type(2) figure:hover figcaption {
+main > .work-experiences figure:hover figcaption {
   text-decoration: underline;
   text-underline-offset: 6px;
 }
 
 /* CTA polish */
-main > section:nth-of-type(4) article {
+main > .cta article {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-main > section:nth-of-type(4) button:hover {
+main > .cta button:hover {
   border-color: #E5E7EB;
   opacity: 0.95;
 }
