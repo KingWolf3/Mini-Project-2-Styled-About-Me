@@ -1,11 +1,14 @@
 /* =========================
    Global Styles
+   -------------------------
+   These rules set up a consistent baseline for all elements
+   and define default body typography for the whole page.
 ========================= */
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Use border-box so padding/border are included in element total width/height */
 }
 
 body {
@@ -14,13 +17,16 @@ body {
 }
 
 /* =========================
-   Header / Hero / Footer Base
+   Header / Profile / Footer Base
+   -------------------------
+   Provides shared background and text color for header, footer,
+   and the first section (profile) for visual consistency.
 ========================= */
 
 header,
 footer,
 main > section:first-of-type {
-  background-color: #1F2937;
+  background-color: #22bdfa;
   color: #F9FAF8;
 }
 
@@ -30,12 +36,15 @@ header {
 
 /* =========================
    Header / Navbar
+   -------------------------
+   Styles the navigation bar inside the header for horizontal layout,
+   spacing, and appearance of links and heading.
 ========================= */
 
 header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Use flexbox to arrange nav children horizontally */
+  justify-content: space-between; /* Space out logo and nav links */
+  align-items: center; /* Vertically center items */
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -46,9 +55,9 @@ header h1 {
 }
 
 header ul {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
+  display: flex; /* Arrange nav links horizontally */
+  list-style: none; /* Remove default list bullets */
+  gap: 1.5rem; /* Space out nav links */
 }
 
 header a {
@@ -58,25 +67,28 @@ header a {
 }
 
 /* =========================
-   Hero Section
+   Profile Section
+   -------------------------
+   Styles the first main section, which contains the profile intro and image.
+   Uses flexbox for side-by-side layout of intro and profile image.
 ========================= */
 
 main > section:first-of-type {
   background-color: #1F2937;
   color: #F9FAF8;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
+  display: flex; /* Layout intro and image side by side */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Vertically center both sides */
+  gap: 4rem; /* Space between intro and image */
 
   padding: 6rem 8rem;
 }
 
 main > section:first-of-type > article,
 main > section:first-of-type > aside {
-  flex: 1;
-  max-width: 525px;
+  flex: 1; /* Allow both sides to grow/shrink equally */
+  max-width: 525px; /* Prevent content from stretching too wide */
 }
 
 main > section:first-of-type h2 {
@@ -105,28 +117,34 @@ main > section:first-of-type button {
 main > section:first-of-type aside {
   background-color: #6B7280;
   color: #E5E7EB;
-  padding: 4rem;
+  padding: .5rem;
+  border-radius: 12px;
   text-align: center;
   min-width: 400px;
   min-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+  display: flex; /* Center image vertically and horizontally */
+  align-items: center; /* Vertically center image */
+  justify-content: center; /* Horizontally center image */
+  flex: 1; /* Allow aside to grow/shrink with flexbox */
 }
 
 main > section:first-of-type aside img {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: cover; /* Ensures image fills area without distortion, cropping as needed */
 }
 
 /* =========================
    Random Info Section
+   -------------------------
+   Styles the second main section, which displays several
+   pieces of "random info" in a row of figures.
+   Uses flexbox for horizontal alignment.
 ========================= */
 
 main > section:nth-of-type(2) {
+  /* Targets the second section inside main (Random Info) */
   padding: 4rem 8rem;
   text-align: center;
 }
@@ -139,37 +157,71 @@ main > section:nth-of-type(2) h2 {
 }
 
 main > section:nth-of-type(2) section {
+  /* Targets the inner section that holds all figure elements */
   max-width: 1100px;
   margin: 0 auto;
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3rem;
-  flex-wrap: nowrap;
+  display: flex; /* Arrange figures in a row */
+  justify-content: center; /* Center figures horizontally */
+  align-items: flex-start; /* Align figures to the top */
+  gap: 3rem; /* Space between figures */
+  flex-wrap: nowrap; /* Prevent wrapping to next line */
 }
 
 main > section:nth-of-type(2) section > figure {
-  display: flex;
+  display: flex; /* Stack image and caption vertically */
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Center image and caption horizontally */
   text-align: center;
-  flex: 0 0 150px;
+  flex: 0 0 150px; /* Prevent figure from growing/shrinking, fixed width */
 }
 
 figure {
   max-width: 150px;
   min-width: 150px;
+  position: relative; /* Anchor absolutely-positioned img to this figure */
 }
 
 figure::before {
+  /* Adds a decorative box above each figure using a pseudo-element,
+     so no extra HTML is needed for the border box. */
   content: "";
   display: block;
   width: 150px;     /* ✅ THIS restores the box */
   height: 150px;
-  border: 3px solid #3882F6;
+ 
+  background-color: #1F2937;
   border-radius: 12px;
   margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 0;
+}
+
+figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  padding: 0.75rem; /* breathing room inside the border box */
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+figure a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+figure a:visited {
+  color: inherit;
+}
+
+figure a:focus-visible {
+  outline: 2px solid #3882F6;
+  outline-offset: 4px;
 }
 
 figcaption {
@@ -179,18 +231,25 @@ figcaption {
 
 /* =========================
    Quote Section
+   -------------------------
+   Styles the third section, which displays a centered quote
+   with blockquote formatting and attribution.
 ========================= */
 
 main > section:nth-of-type(3) {
+  /* Targets the third section inside main (Quote section) */
   background-color: #E5E7EB;
   padding: 6rem 12rem;
-  display: flex;
+  display: flex; /* Center blockquote horizontally */
   justify-content: center;
 }
 
 main > section:nth-of-type(3) blockquote {
   max-width: 900px;
   width: 100%;
+  border: 3px solid #1F2937;
+  padding: 2rem;
+  border-radius: 8px;
 }
 
 blockquote p {
@@ -204,32 +263,44 @@ blockquote footer {
   margin-top: 1rem;
   text-align: right;
   font-weight: 700;
+  font-size: larger;
   color: #1F2937;
 }
 
 /* =========================
    Call To Action Section
+   -------------------------
+   Styles the fourth section, which contains a call-to-action
+   message and button, visually set apart with background and spacing.
 ========================= */
 
 main > section:nth-of-type(4) {
+  /* Targets the fourth section inside main (Call to Action) */
   padding: 4rem 8rem;
+  display: flex;
+  justify-content: center;
 }
 
 main > section:nth-of-type(4) article {
-  background-color: #3882F6;
+  background-color: #1F2937;
   color: #F9FAF8;
   padding: 3rem 5rem;
   border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main > section:nth-of-type(4) article > * {
+  background-color: transparent;
 }
 
 main > section:nth-of-type(4) h3 {
   font-size: 24px;
+  white-space: nowrap;
 }
 
 main > section:nth-of-type(4) p {
@@ -237,7 +308,7 @@ main > section:nth-of-type(4) p {
 }
 
 main > section:nth-of-type(4) button {
-  background-color: transparent;
+  background-color: #3882F6;
   border: 2px solid #F9FAF8;
   color: #F9FAF8;
   padding: 0.5rem 2rem;
@@ -248,10 +319,149 @@ main > section:nth-of-type(4) button {
 
 /* =========================
    Footer
+   -------------------------
+   Styles the footer for centered, small copyright text.
 ========================= */
 
 footer {
   text-align: center;
   padding: 2rem;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+footer button {
+  white-space: nowrap;
+}
+
+/* =========================
+   VE Page (Work Experience)
+   Page-scoped styles so they don't affect index.html
+========================== */
+
+.ve-page .experience-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers the content block horizontally */
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;       /* breathing room around the content */
+}
+
+.ve-page .role-card {
+  width: 100%;
+  max-width: 1000px;        /* keeps content readable on large screens */
+  display: block;
+}
+
+.ve-page .role-header {
+  text-align: center;       /* centers the header card text */
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.ve-page .role-bullets {
+  max-width: 900px;         /* readable line length */
+  margin: 0 auto;           /* centers the list container */
+  text-align: left;         /* bullets should read left-aligned */
+  padding-left: 1.5rem;
+}
+
+/* =========================
+   Univision Page (Work Experience)
+   Page-scoped styles so they don't affect index.html
+========================== */
+
+.univision-page .experience-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers the content block horizontally */
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;       /* breathing room around the content */
+}
+
+.univision-page .role-card {
+  width: 100%;
+  max-width: 1000px;        /* keeps content readable on large screens */
+  display: block;
+}
+
+.univision-page .role-header {
+  text-align: center;       /* centers the header card text */
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.univision-page .role-bullets {
+  max-width: 900px;         /* readable line length */
+  margin: 0 auto;           /* centers the list container */
+  text-align: left;         /* bullets should read left-aligned */
+  padding-left: 1.5rem;
+}
+
+/* =========================
+   NYU Page (Work Experience)
+   Page-scoped styles so they don't affect index.html
+========================== */
+
+.nyu-page .experience-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers the content block horizontally */
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;       /* breathing room around the content */
+}
+
+.nyu-page .role-card {
+  width: 100%;
+  max-width: 1000px;        /* keeps content readable on large screens */
+  display: block;
+}
+
+.nyu-page .role-header {
+  text-align: center;       /* centers the header card text */
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+
+.nyu-page .role-bullets {
+  max-width: 900px;         /* readable line length */
+  margin: 0 auto;           /* centers the list container */
+  text-align: left;         /* bullets should read left-aligned */
+  padding-left: 1.5rem;
+}
+
+/* =========================
+   Sharing Box Page (Work Experience)
+   Page-scoped styles so they don't affect index.html
+========================== */
+
+.sharingbox-page .experience-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centers the content block horizontally */
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;       /* breathing room around the content */
+}
+
+.sharingbox-page .role-card {
+  width: 100%;
+  max-width: 1000px;        /* keeps content readable on large screens */
+  display: block;
+}
+
+.sharingbox-page .role-header {
+  text-align: center;       /* centers the header card text */
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.sharingbox-page .role-bullets {
+  max-width: 900px;         /* readable line length */
+  margin: 0 auto;           /* centers the list container */
+  text-align: left;         /* bullets should read left-aligned */
+  padding-left: 1.5rem;
 }
